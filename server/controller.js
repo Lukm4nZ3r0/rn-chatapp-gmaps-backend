@@ -56,7 +56,7 @@ exports.getUserById = (req,res) =>{
 }
 
 exports.getUsers = (req,res) =>{
-    connection.query(`SELECT id,username,name, image_link FROM user ORDER BY name ASC`, (error, rows, field)=>{
+    connection.query(`SELECT id,username,name,image_link FROM user ORDER BY name ASC`, (error, rows, field)=>{
         if(error){
             throw error
         }
@@ -127,7 +127,7 @@ exports.setOffline = (io,username) =>{
 }
 
 exports.getRealtimeCoordinate = (io) =>{
-    connection.query(`SELECT username, name, coordinate FROM user WHERE is_login=1`, (error,rows,field)=>{
+    connection.query(`SELECT id,username,name,coordinate,image_link FROM user`, (error,rows,field)=>{
         if(error){
             throw error
         }
