@@ -1,7 +1,8 @@
-const port = 3000
+const port = process.env.PORT || 4000
 const express = require('express')
 const bodyParser = require('body-parser')
 const http = require('http')
+require('dotenv').config()
 
 // import controller
 const controller = require('./controller')
