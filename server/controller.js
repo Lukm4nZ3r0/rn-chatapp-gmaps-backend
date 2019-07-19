@@ -23,7 +23,7 @@ exports.register = (req,res) =>{
                 })
             }
             else{
-                connection.query(`INSERT INTO user SET username=?, password=?, name=?, city=?, image_link=?`, [registerData.username, registerData.name, registerData.password, registerData.city, 'https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png'], (error,rows,field)=>{
+                connection.query(`INSERT INTO user SET username=?, password=?, name=?, city=?, image_link=?, coordinate=?, is_login=?`, [registerData.username, registerData.password, registerData.name, registerData.city, 'https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png', '0,0', 0], (error,rows,field)=>{
                     if(error){
                         throw error
                     }
