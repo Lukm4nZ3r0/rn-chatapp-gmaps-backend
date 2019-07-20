@@ -56,7 +56,7 @@ exports.getUserById = (req,res) =>{
 }
 
 exports.getUsers = (req,res) =>{
-    connection.query(`SELECT id,username,name,image_link FROM user ORDER BY name ASC`, (error, rows, field)=>{
+    connection.query(`SELECT id,username,name,image_link,is_login FROM user ORDER BY name ASC`, (error, rows, field)=>{
         if(error){
             throw error
         }
@@ -115,7 +115,7 @@ exports.setOnline = (io,username) =>{
             throw error
         }
         else{
-            connection.query(`SELECT username,name,coordinate FROM user WHERE is_login=1`, (error,rows,field)=>{
+            connection.query(`SELECT id,username,name,image_link,is_login FROM user`, (error,rows,field)=>{
                 return io.emit('onlineUser', rows)
             })
         }

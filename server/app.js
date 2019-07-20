@@ -34,7 +34,8 @@ io.on('connection', (socket)=>{
     })
 
     socket.on('setOnline', (username)=>{
-    	controller.setOnline(io,username)
+        controller.setOnline(io,username)
+        console.log(onlineStatus)
     })
 
     socket.on('getRealtimePersons', ()=>{
@@ -42,9 +43,9 @@ io.on('connection', (socket)=>{
     })
 
     socket.on('disconnect',()=>{
-    	console.log('got disconnect!'+socket.id)
+        console.log('got disconnect!'+socket.id)
     	let i = allClients.indexOf(socket)
-    	allClients.splice(i,1)
+        allClients.splice(i,1)
     })
 })
 

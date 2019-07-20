@@ -1,0 +1,3 @@
+create sql db with name : belajar_nodejs_socketio
+
+then import chat.sql and user.sql
